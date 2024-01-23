@@ -53,7 +53,7 @@ function App() {
 
   const sendMassiveMsg = async () => {
     const flushMessage = () => {
-      const tenMessage = new Array.from({ length: 10 }).fill({
+      const tenMessage = Array.from({ length: 10 }).fill({
         type: "text",
         text: "I LOVE U",
       });
