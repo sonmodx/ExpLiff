@@ -9,6 +9,12 @@ function App() {
       await liff.init({
         liffId: import.meta.env.VITE_LIFF_ID,
       });
+      /*
+      NOTE:
+      You can't use liff.login() in a LIFF browser, as it's automatically executed when liff.init() is executed.
+      */
+
+      // login call, only when external browser or LINE's in-app browser is used
       if (!liff.isLoggedIn()) {
         liff.login();
         return;
@@ -26,8 +32,23 @@ function App() {
   }, []);
 
   const handleLogout = () => {
+    // logout call only when external browse or LINE's in-app browser is used
     liff.logout();
     liff.closeWindow();
+  };
+
+  const openExternal = () => {
+    liff.openWindow({
+      url: "https://line.me",
+      external: true,
+    });
+  };
+
+  const openExternalInLine = () => {
+    liff.openWindow({
+      url: "https://line.me",
+      external: false,
+    });
   };
 
   return (
@@ -39,6 +60,12 @@ function App() {
       <h4>UserId: {user.userId}</h4>
       <p>Status: {user.statusMessage}</p>
       <button onClick={handleLogout}>Logout</button>
+      <br />
+      <button onClick={openExternalInLine}></button>
+      <br />
+      <button onClick={openExternal}></button>
+      <br />
+      <a href="https://github.com/vitejs/vite/issues/15010">github</a>
     </div>
   );
 }
