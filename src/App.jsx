@@ -60,7 +60,13 @@ function App() {
       return tenMessage;
     };
     try {
-      const res = await liff.sendMessages(flushMessage);
+      const res = await liff.sendMessages([
+        {
+          type: "text",
+          text: "I LOVE U",
+        },
+      ]);
+      console.log(res);
     } catch (err) {
       console.log("error :", err);
     }
