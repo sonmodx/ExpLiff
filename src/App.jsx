@@ -53,15 +53,17 @@ function App() {
 
   const sendMassiveMsg = async () => {
     const flushMessage = () => {
-      const tenMessage = Array.from({ length: 10 }).fill({
+      const tenMessage = Array.from({ length: 5 }).fill({
         type: "text",
         text: "I LOVE U",
       });
       return tenMessage;
     };
-    const res = await liff.sendMessages(flushMessage);
-    console.log("obg", flushMessage);
-    console.log(res);
+    try {
+      const res = await liff.sendMessages(flushMessage);
+    } catch (err) {
+      console.log("error :", err);
+    }
   };
 
   return (
