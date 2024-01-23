@@ -53,9 +53,9 @@ function App() {
 
   const sendMassiveMsg = async () => {
     const flushMessage = () => {
-      const tenMessage = Array.from({ length: 5 }).fill({
+      const tenMessage = Array.from({ length: 7 }).fill({
         type: "text",
-        text: "FERN MAI TOA",
+        text: "FERN MAI TOL",
       });
       return tenMessage;
     };
