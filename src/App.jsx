@@ -59,7 +59,9 @@ function App() {
       });
       return tenMessage;
     };
-    await liff.sendMessages(flushMessage);
+    const res = await liff.sendMessages(flushMessage);
+    console.log("obg", flushMessage);
+    console.log(res);
   };
 
   return (
