@@ -53,27 +53,16 @@ function App() {
 
   const sendMassiveMsg = async () => {
     const flushMessage = () => {
-      const tenMessage = Array.from({ length: 2 }).fill({
+      const tenMessage = Array.from({ length: 3 }).fill({
         type: "text",
         text: "I LOVE U",
       });
       return tenMessage;
     };
     try {
-      const res = await liff.sendMessages([
-        {
-          type: "text",
-          text: "I LOVE U",
-        },
-        {
-          type: "text",
-          text: "I LOVE U",
-        },
-        {
-          type: "text",
-          text: "I LOVE U",
-        },
-      ]);
+      console.log("1", flushMessage);
+      const res = await liff.sendMessages(flushMessage);
+      console.log("2", flushMessage);
       console.log(res);
     } catch (err) {
       console.log("error :", err);
