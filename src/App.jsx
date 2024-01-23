@@ -51,6 +51,17 @@ function App() {
     });
   };
 
+  const sendMassiveMsg = async () => {
+    const flushMessage = () => {
+      const tenMessage = new Array.from({ length: 10 }).fill({
+        type: "text",
+        text: "I LOVE U",
+      });
+      return tenMessage;
+    };
+    await liff.sendMessages(flushMessage);
+  };
+
   return (
     <div className="App">
       <h1>create-liff-app</h1>
@@ -66,6 +77,8 @@ function App() {
       <button onClick={openExternal}></button>
       <br />
       <a href="https://github.com/vitejs/vite/issues/15010">github</a>
+
+      <button onClick={sendMassiveMsg}>Send massive msg</button>
     </div>
   );
 }
