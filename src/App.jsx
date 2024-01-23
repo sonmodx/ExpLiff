@@ -27,7 +27,7 @@ function App() {
 
   const handleLogout = () => {
     liff.logout();
-    window.location.reload();
+    liff.closeWindow();
   };
 
   return (
